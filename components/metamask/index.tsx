@@ -44,7 +44,7 @@ const henkakuToken: TokenInfo = {
     address: '0xd59FFEE93A55F67CeD0F56fa4A991d4c8c8f5C4E',
     symbol: 'HENKAKU',
     decimals: 18,
-    image: 'https://compoundinc.jp/cms2/wp-content/uploads/2022/03/HENKAKU_works-01.jpg'
+    image: 'https://raw.githubusercontent.com/henkaku-center/shiniri/main/public/henkakuToken.png'
   },
 }
 

@@ -95,7 +95,7 @@ const AddPolygonNetwork: React.VFC =  () => {
 }
 
 const ConnectWallet = () => {
-  const injectedConnector = new InjectedConnector({supportedChainIds: [1,137],})
+  const injectedConnector = new InjectedConnector({})
   const { chainId, account, activate, active,library } = useWeb3React<Web3Provider>()
   const onClick = () => {
     activate(injectedConnector)

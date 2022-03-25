@@ -3,7 +3,6 @@ import { Web3Provider } from '@ethersproject/providers'
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { Network, TokenInfo } from './types'
 import { useEffect } from 'react'
-import { Content } from '../common'
 import styled from 'styled-components'
 
 const Button = styled.button`
@@ -49,8 +48,11 @@ const henkakuToken: TokenInfo = {
 }
 
 const AddHenkakuToken: React.VFC = () => {
-  const { library } = useWeb3React<Web3Provider>()
+  const context = useWeb3React();
+  const { library } = context;
+
   const addHenkakuToken = async () => {
+    if (!library) { return }
     try {
       const wasAdded = await library.provider.request({
         method: "wallet_watchAsset",
@@ -62,7 +64,7 @@ const AddHenkakuToken: React.VFC = () => {
       }
     } catch (e) {
       console.log(e)
-      alert(`something went wrong ask admin for help (なんか変だな): ${e.message}`)
+      alert(`something went wrong ask admin for help (なんか変だな): ${e}`)
     }
   }
 
@@ -72,11 +74,13 @@ const AddHenkakuToken: React.VFC = () => {
 }
 
 const AddPolygonNetwork: React.VFC =  () => {
-  const { library } = useWeb3React<Web3Provider>()
+  const context = useWeb3React();
+  const { library } = context;
 
   const addPolygonNetwork = async() => {
+    if (!library) { return }
     try {
-       await library.provider.request({
+      await library.provider.request({
         method: "wallet_addEthereumChain",
         params: [polyGonNetwork]
       });

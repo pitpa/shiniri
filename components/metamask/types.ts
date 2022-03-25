@@ -20,4 +20,4 @@ interface TokenInfo {
   }
 }
 
-export { Network, TokenInfo }
+export type { Network, TokenInfo }

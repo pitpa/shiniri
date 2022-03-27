@@ -153,8 +153,8 @@ const ConnectWallet = () => {
       ) : (
         <Helper>
           <p>
-            MetaMask is not installed. For mobile, please use the MetaMask
-            browser. <br />{' '}
+            MetaMask is not installed. smartphone, use MetaMask in-app browser
+            instead of Safari and chrome in smartphone. <br />{' '}
             MetaMaskがインストールされてません。スマートフォンの場合はMetaMaskアプリ内のブラウザーを使ってください。
           </p>
           <Link href="https://metamask.io/download/" passHref>

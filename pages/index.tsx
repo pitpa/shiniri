@@ -8,18 +8,18 @@ const Home: NextPage = () => {
     <div style={{ background: "rgb(15 19 22)" }}>
       <Container>
         <Head>
-          <title>Henkaku Shiniri</title>
+          <title>HENKAKU Shiniri</title>
           <meta name="description" content="" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
         <Main>
-          <Title>Henkaku Shiniri - 新入り</Title>
+          <Title>HENKAKU Shiniri - 新入り</Title>
           <Content>
             <p>
-              Welcome to Henkaku Community. Set up your Metamask.
+              Welcome to HENKAKU Community. Set up your MetaMask.
               <br />
-              ようこそ 変革コミュニティへ まずはMetamaskの設定をしてくれ。
+              ようこそ 変革コミュニティへ まずはMetaMaskの設定をしてくれ。
               たったの3クリックで完了だ。
             </p>
           </Content>

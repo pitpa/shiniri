@@ -2,8 +2,26 @@ import { useWeb3React } from "@web3-react/core";
 import { Web3Provider } from "@ethersproject/providers";
 import { InjectedConnector } from "@web3-react/injected-connector";
 import { Network, TokenInfo } from "./types";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import Link from "next/link";
+
+const LinkButton = styled.a`
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  padding: 12px 32px;
+  margin: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+
+  background-image: linear-gradient(to right, rgb(1 134 218), rgb(182 49 167));
+  border: 0;
+  color: white !important;
+  display: inline-block;
+  text-decoration: none;
+`;
 
 const Button = styled.button`
   font-family: "DM Sans", sans-serif;
@@ -25,6 +43,7 @@ const Helper = styled.div`
   font-size: 16px;
   text-align: center;
 `;
+
 const polyGonNetwork: Network = {
   chainId: "0x89",
   rpcUrls: ["https://rpc-mainnet.matic.network/"],
@@ -108,6 +127,8 @@ const ConnectWallet = () => {
   const { chainId, account, activate, active, library } =
     useWeb3React<Web3Provider>();
 
+  const [isMetaMask, setIsMetaMask] = useState(false);
+
   const connectInjected = async () => {
     try {
       await activate(injectedConnector);
@@ -118,12 +139,33 @@ const ConnectWallet = () => {
   };
 
   useEffect(() => {
-    console.log(chainId, account, active);
-  }, [account, active, chainId]);
+    if (window.ethereum && window.ethereum.isMetaMask) {
+      setIsMetaMask(true);
+    } else {
+      console.log("Need to install MetaMask");
+    }
+  }, []);
 
   return (
     <>
-      {active ? (
+      {isMetaMask ? (
+        ""
+      ) : (
+        <Helper>
+          <p>
+            MetaMask is not installed. For mobile, please use the MetaMask
+            browser. <br />{" "}
+            MetaMaskがインストールされてません。モバイルの場合はMetaMaskのブラウザーを使ってください。
+          </p>
+          <Link href="https://metamask.io/download/" passHref>
+            <LinkButton>
+              Donwload MetaMask / MetaMaskをダウンロードする
+            </LinkButton>
+          </Link>
+        </Helper>
+      )}
+
+      {active || !isMetaMask ? (
         ""
       ) : (
         <Helper>
@@ -136,6 +178,7 @@ const ConnectWallet = () => {
           </Button>
         </Helper>
       )}
+
       {active && chainId != 137 ? (
         <Helper>
           <p>

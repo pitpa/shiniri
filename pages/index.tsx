@@ -1,11 +1,11 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import { ConnectWallet } from "../components/metamask";
-import { Container, Content, Main, Title } from "../components/common";
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import { ConnectWallet } from '../components/metamask'
+import { Container, Content, Main, Title } from '../components/common'
 
 const Home: NextPage = () => {
   return (
-    <div style={{ background: "rgb(15 19 22)" }}>
+    <div style={{ background: 'rgb(15 19 22)' }}>
       <Container>
         <Head>
           <title>HENKAKU Shiniri</title>
@@ -27,7 +27,7 @@ const Home: NextPage = () => {
         </Main>
       </Container>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

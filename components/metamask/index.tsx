@@ -52,7 +52,7 @@ const AddHenkakuToken: React.VFC = () => {
   const context = useWeb3React();
   const { library } = context;
 
-  const addHenkakuToken = async () => {
+  const addToken = async () => {
     if (!library) {
       return;
     }
@@ -72,7 +72,7 @@ const AddHenkakuToken: React.VFC = () => {
   };
 
   return (
-    <Button onClick={addHenkakuToken}>
+    <Button onClick={addToken}>
       Add henkaku token / Henkakuトークンを追加する
     </Button>
   );
@@ -82,7 +82,7 @@ const AddPolygonNetwork: React.VFC = () => {
   const context = useWeb3React();
   const { library } = context;
 
-  const addPolygonNetwork = async () => {
+  const addNetwork = async () => {
     if (!library) {
       return;
     }
@@ -97,7 +97,7 @@ const AddPolygonNetwork: React.VFC = () => {
     }
   };
   return (
-    <Button onClick={addPolygonNetwork}>
+    <Button onClick={addNetwork}>
       Add Polygon Network / Polygonのネットワークに接続する
     </Button>
   );
@@ -114,7 +114,7 @@ const ConnectWallet = () => {
 
   useEffect(() => {
     console.log(chainId, account, active);
-  }, [account]);
+  }, [account, active, chainId]);
 
   return (
     <>

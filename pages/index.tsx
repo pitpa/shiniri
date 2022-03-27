@@ -5,7 +5,7 @@ import { Container, Content, Main, Title } from "../components/common";
 
 const Home: NextPage = () => {
   return (
-    <body style={{ background: "rgb(15 19 22)" }}>
+    <div style={{ background: "rgb(15 19 22)" }}>
       <Container>
         <Head>
           <title>Henkaku Shiniri</title>
@@ -26,7 +26,7 @@ const Home: NextPage = () => {
           <ConnectWallet />
         </Main>
       </Container>
-    </body>
+    </div>
   );
 };
 

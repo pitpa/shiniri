@@ -1,9 +1,9 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const Container = styled.div`
   background: rgb(15 19 22);
   font-family: Inter, sans-serif;
-`
+`;
 const Main = styled.div`
   min-height: 100vh;
   padding: 4rem 0;
@@ -13,9 +13,9 @@ const Main = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-`
+`;
 
-const Tiltle = styled.div`
+const Title = styled.div`
   background-image: linear-gradient(225deg, #28d8ff, #032eff) !important;
 
   -webkit-text-fill-color: transparent;
@@ -25,7 +25,7 @@ const Tiltle = styled.div`
   float: left;
   -webkit-box-decoration-break: clone;
   overflow: visible;
-`
+`;
 
 const Content = styled.div`
   background-image: linear-gradient(225deg, #ff2828, #032eff) !important;
@@ -35,6 +35,6 @@ const Content = styled.div`
   font-size: 1rem;
   -webkit-box-decoration-break: clone;
   overflow: visible;
-`
+`;
 
-export { Container, Main, Tiltle, Content}
+export { Container, Main, Title, Content };

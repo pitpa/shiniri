@@ -6,14 +6,6 @@ import { useEffect, useState } from 'react'
 import { isMobile } from 'react-device-detect'
 import { AppBanner } from '../components/appBanner'
 
-declare global {
-  interface Window {
-    ethereum?: {
-      isMetaMask?: true
-    }
-  }
-}
-
 const Home: NextPage = () => {
   const [isMetaMask, setMemtaMask] = useState<Boolean>(false)
 

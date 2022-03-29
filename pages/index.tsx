@@ -6,9 +6,11 @@ import { useEffect, useState } from 'react'
 import { isMobile } from 'react-device-detect'
 import { AppBanner } from '../components/appBanner'
 
-interface Window {
-  ethereum?: {
-    isMetaMask?: true
+declare global {
+  interface Window {
+    ethereum?: {
+      isMetaMask?: true
+    }
   }
 }
 

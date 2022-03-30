@@ -37,4 +37,10 @@ const Content = styled.div`
   overflow: visible;
 `
 
-export { Container, Main, Title, Content }
+const Helper = styled.div`
+  color: white;
+  font-size: 16px;
+  text-align: center;
+`
+
+export { Container, Main, Title, Content, Helper }

@@ -23,8 +23,8 @@ const Button = styled.button`
 
 const polyGonNetwork: Network = {
   chainId: '0x89',
-  rpcUrls: ['https://rpc-mainnet.matic.network/'],
-  chainName: 'Matic Mainnet',
+  rpcUrls: ['https://polygon-rpc.com/'],
+  chainName: 'Polygon Mainnet',
   nativeCurrency: {
     name: 'MATIC',
     symbol: 'MATIC',
@@ -48,7 +48,7 @@ const AddHenkakuToken: React.VFC = () => {
   const context = useWeb3React()
   const { library } = context
 
-  const addHenkakuToken = async () => {
+  const addToken = async () => {
     if (!library) {
       return
     }
@@ -59,17 +59,17 @@ const AddHenkakuToken: React.VFC = () => {
       })
 
       if (wasAdded) {
-        alert('wow Epic! go back to discord / これで全てが終了だおめでとう')
+        alert('Wow Epic! Go back to discord / これで全てが終了だおめでとう')
       }
     } catch (e) {
       console.log(e)
-      alert(`something went wrong ask admin for help (なんか変だな): ${e}`)
+      alert(`Something went wrong ask admin for help (なんか変だな): ${e}`)
     }
   }
 
   return (
-    <Button onClick={addHenkakuToken}>
-      Add henkaku token / Henkakuトークンを追加する
+    <Button onClick={addToken}>
+      Add HENKAKU token / HENKAKUトークンを追加する
     </Button>
   )
 }
@@ -78,7 +78,7 @@ const AddPolygonNetwork: React.VFC = () => {
   const context = useWeb3React()
   const { library } = context
 
-  const addPolygonNetwork = async () => {
+  const addNetwork = async () => {
     if (!library) {
       return
     }
@@ -89,11 +89,11 @@ const AddPolygonNetwork: React.VFC = () => {
       })
     } catch (e) {
       console.log(e)
-      alert(`something went wrong ask admin for help (なんか変だな): ${e}`)
+      alert(`Something went wrong ask admin for help (なんか変だな): ${e}`)
     }
   }
   return (
-    <Button onClick={addPolygonNetwork}>
+    <Button onClick={addNetwork}>
       Add Polygon Network / Polygonのネットワークに接続する
     </Button>
   )
@@ -103,13 +103,15 @@ const ConnectWallet = () => {
   const injectedConnector = new InjectedConnector({})
   const { chainId, account, activate, active, library } =
     useWeb3React<Web3Provider>()
-  const onClick = () => {
-    activate(injectedConnector)
-  }
 
-  useEffect(() => {
-    console.log(chainId, account, active)
-  })
+  const connectInjected = async () => {
+    try {
+      await activate(injectedConnector)
+    } catch (e) {
+      console.log(e)
+      alert(`Something went wrong ask admin for help (なんか変だな): ${e}`)
+    }
+  }
 
   return (
     <>
@@ -118,21 +120,22 @@ const ConnectWallet = () => {
       ) : (
         <Helper>
           <p>
-            you are not connected to Metamask <br />{' '}
-            Metamaskに繋がっていないようだ
+            You are not connected to MetaMask <br />{' '}
+            MetaMaskに繋がっていないようだ
           </p>
-          <Button type='button' onClick={onClick}>
-            Connect Metamask / Metamaskに接続する
+          <Button type='button' onClick={connectInjected}>
+            Connect MetaMask / MetaMaskに接続する
           </Button>
         </Helper>
       )}
+
       {active && chainId != 137 ? (
         <Helper>
           <p>
-            Now, connected to Metamask <br /> Metamaskにはつながったようだ
+            Now, connected to MetaMask <br /> MetaMaskにはつながったようだ
           </p>
           <p>
-            you are not connected to PolygonNetowrk. switch or Add polygon
+            You are not connected to Polygon Netowrk. Switch or add polygon
             network <br />{' '}
             ただ、ポリゴンのネットワークにはつながっていないようだ
           </p>
@@ -145,7 +148,7 @@ const ConnectWallet = () => {
       {active && chainId == 137 ? (
         <Helper>
           <p>
-            Add Henkaku Token to your Metamask / 最後だ。Henkaku
+            Add HENKAKU Token to your Metamask / 最後だ。HENKAKU
             Tokenを追加してくれ
           </p>
           <AddHenkakuToken />
@@ -157,4 +160,4 @@ const ConnectWallet = () => {
   )
 }
 
-export { ConnectWallet, AddHenkakuToken, AddPolygonNetwork }
+export { ConnectWallet }

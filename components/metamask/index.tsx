@@ -24,7 +24,7 @@ const Button = styled.button`
 const polyGonNetwork: Network = {
   chainId: '0x89',
   rpcUrls: ['https://polygon-rpc.com/'],
-  chainName: 'Matic Mainnet',
+  chainName: 'Polygon Mainnet',
   nativeCurrency: {
     name: 'MATIC',
     symbol: 'MATIC',

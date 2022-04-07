@@ -2,7 +2,6 @@ import { useWeb3React } from '@web3-react/core'
 import { Web3Provider } from '@ethersproject/providers'
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { Network, TokenInfo } from './types'
-import { useEffect } from 'react'
 import styled from 'styled-components'
 import { Helper } from '../common'
 
@@ -33,18 +32,18 @@ const polyGonNetwork: Network = {
   blockExplorerUrls: ['https://polygonscan.com/'],
 }
 
-const henkakuToken: TokenInfo = {
+const pitpaToken: TokenInfo = {
   type: 'ERC20',
   options: {
-    address: '0xd59FFEE93A55F67CeD0F56fa4A991d4c8c8f5C4E',
-    symbol: 'HENKAKU',
+    address: '0x79A579EDfD4c5C30624d66935B3FB1e73C8eAFA9',
+    symbol: 'PIT',
     decimals: 18,
     image:
-      'https://raw.githubusercontent.com/henkaku-center/shiniri/main/public/henkakuToken.png',
+      'https://raw.githubusercontent.com/pitpa/shiniri/main/public/pitpaToken.png',
   },
 }
 
-const AddHenkakuToken: React.VFC = () => {
+const AddPitPaToken: React.VFC = () => {
   const context = useWeb3React()
   const { library } = context
 
@@ -55,7 +54,7 @@ const AddHenkakuToken: React.VFC = () => {
     try {
       const wasAdded = await library.provider.request({
         method: 'wallet_watchAsset',
-        params: henkakuToken,
+        params: pitpaToken,
       })
 
       if (wasAdded) {
@@ -69,7 +68,7 @@ const AddHenkakuToken: React.VFC = () => {
 
   return (
     <Button onClick={addToken}>
-      Add HENKAKU token / HENKAKUトークンを追加する
+      Add PitPa token(PIT) / PitPaトークンを追加する
     </Button>
   )
 }
@@ -148,10 +147,10 @@ const ConnectWallet = () => {
       {active && chainId == 137 ? (
         <Helper>
           <p>
-            Add HENKAKU Token to your Metamask / 最後だ。HENKAKU
-            Tokenを追加してくれ
+            Add PitPa Token(PIT) to your Metamask / 最後だ。PitPa
+            Token(PIT)を追加してくれ
           </p>
-          <AddHenkakuToken />
+          <AddPitPaToken />
         </Helper>
       ) : (
         ''

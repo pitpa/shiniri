@@ -19,18 +19,18 @@ const Home: NextPage = () => {
     <div style={{ background: 'rgb(15 19 22)' }}>
       <Container>
         <Head>
-          <title>HENKAKU Shiniri</title>
+          <title>PitPa Shiniri</title>
           <meta name='description' content='' />
           <link rel='icon' href='/favicon.ico' />
         </Head>
 
         <Main>
-          <Title>HENKAKU Shiniri - 新入り</Title>
+          <Title>PitPa Shiniri - 新入り</Title>
           <Content>
             <p>
-              Welcome to HENKAKU Community. Set up your MetaMask.
+              Welcome to PitPa. Set up your MetaMask.
               <br />
-              ようこそ 変革コミュニティへ まずはMetaMaskの設定をしてくれ。
+              ようこそ PitPa へ まずはMetaMaskの設定をしてくれ。
               たったの3クリックで完了だ。
             </p>
           </Content>
